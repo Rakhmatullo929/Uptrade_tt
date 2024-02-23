@@ -1,0 +1,14 @@
+<ul class="menu">
+	{% for menu in menus %}
+		<li>{{ menu.title }}</li>
+		<ul>
+			{% for submenu in menu.submenu.all %}
+				{% if submenu.slug == slug %}
+					<li class="submenu active"><a href="{% url 'app:home' %}?menu={{ submenu.slug }}">{{ submenu.title }}</a></li>
+				{% else %}
+					<li class="submenu"><a href="{% url 'app:home' %}?menu={{ submenu.slug }}">{{ submenu.title }}</a></li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% endfor %}
+</ul>

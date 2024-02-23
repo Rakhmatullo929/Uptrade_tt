@@ -1,0 +1,21 @@
+{% extends 'base_layout.html' %}
+{% load menu %}
+
+{% block content %}
+    <div class="column is-4">
+        <div class="box">
+            {% menu %}
+        </div>
+    </div>
+    <div class="column is-4">
+        <div class="box">
+
+            {% if not slug_status %}
+                Choice menu
+            {% endif %}
+            {% if slug_status %}
+                {{ slug_status }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}
